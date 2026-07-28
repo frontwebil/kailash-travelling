@@ -299,8 +299,6 @@ document.getElementById("langEn").addEventListener("click", function () {
   setLang("en");
 });
 
-/* ================= view router ================= */
-/* якоря, которые живут на странице программы */
 var PROG_HASHES = [
   "#program",
   "#pintro",
@@ -318,7 +316,6 @@ var PROG_HASHES = [
 ];
 
 function showReveals(root) {
-  /* страховка: блоки, показанные после переключения вида, должны проявиться */
   var els = root.querySelectorAll(".reveal");
   for (var i = 0; i < els.length; i++) {
     var r = els[i].getBoundingClientRect();
@@ -344,7 +341,6 @@ function route() {
       target = null;
     }
   }
-  /* даём браузеру пересчитать раскладку после смены вида */
   setTimeout(function () {
     if (target) {
       target.scrollIntoView({ behavior: "auto", block: "start" });
@@ -359,7 +355,6 @@ window.addEventListener("hashchange", function () {
   route();
 });
 
-/* ================= mobile menu ================= */
 var burger = document.getElementById("burger");
 var mnav = document.getElementById("mnav");
 function closeMenu() {
@@ -380,7 +375,6 @@ if (burger && mnav) {
   for (var mi = 0; mi < mlinks.length; mi++) {
     mlinks[mi].addEventListener("click", function () {
       closeMenu();
-      /* если ссылка ведёт на текущий хеш — hashchange не сработает, роутим вручную */
       var self = this;
       setTimeout(function () {
         if (location.hash === self.getAttribute("href")) {
@@ -391,7 +385,6 @@ if (burger && mnav) {
   }
 }
 
-/* повторный клик по ссылке с тем же хешем должен всё равно сработать */
 (function () {
   var links = document.querySelectorAll('a[href^="#"]');
   for (var i = 0; i < links.length; i++) {
@@ -409,7 +402,6 @@ if (burger && mnav) {
 
 route();
 
-/* ================= scroll reveal ================= */
 (function () {
   var els = document.querySelectorAll(".reveal");
   if (!("IntersectionObserver" in window)) {
@@ -434,7 +426,6 @@ route();
   });
 })();
 
-/* ================= gallery carousel ================= */
 (function () {
   var track = document.getElementById("carTrack");
   if (!track) {
@@ -452,7 +443,6 @@ route();
   });
 })();
 
-/* ================= lead form ================= */
 (function () {
   var form = document.getElementById("leadForm");
   form.addEventListener("submit", function (ev) {
@@ -476,13 +466,11 @@ route();
     if (!valid) {
       return;
     }
-    // TODO: заменить на fetch к вебхуку Bitrix24 (crm.lead.add)
     document.getElementById("formFields").style.display = "none";
     document.getElementById("formOk").style.display = "block";
   });
 })();
 
-/* ================= .reveal: страховка для печати и экспорта в PDF ================= */
 (function () {
   function revealAll() {
     var els = document.querySelectorAll(".reveal");
@@ -509,7 +497,6 @@ route();
   window.addEventListener("beforeprint", revealAll, false);
 })();
 
-/* ================= презентация: точки, прогресс, активный пункт ================= */
 (function () {
   var deck = document.getElementById("viewProgram");
   if (!deck) {
