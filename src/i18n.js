@@ -1,6 +1,6 @@
 export const I18N = {
   ru: {
-    see_more_inst: "Смотреть больше в Instagram",
+    see_more_inst: "Смотреть больше видео в Instagram",
     logo1: "Кай",
     logo2: "лас",
     nav_about: "Экспедиция",
@@ -134,7 +134,7 @@ export const I18N = {
     ft_line: "Тибет — Непал · 03.10 – 18.10.2026",
   },
   en: {
-    see_more_inst: "See more on Instagram",
+    see_more_inst: "See more videos on Instagram",
     logo1: "Kai",
     logo2: "lash",
     nav_about: "Expedition",
